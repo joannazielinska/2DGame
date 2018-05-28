@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Coin
   - Food
+  - BlueElixir
+  - OrangeElixir
+  - RedElixir
   layers:
   - Default
   - TransparentFX

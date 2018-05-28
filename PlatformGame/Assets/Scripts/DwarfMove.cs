@@ -11,6 +11,7 @@ public class DwarfMove : MonoBehaviour {
 	public float jumpHigh;
 	public float speed;
 	public float baseMovement;
+	public float movementBonus;
 	public Text scoreText;
 
 	void Awake() {
@@ -45,12 +46,21 @@ public class DwarfMove : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.CompareTag("Coin")){
+			other.gameObject.SetActive(false);
 			score +=10;
 		}
 		
 		if (other.gameObject.CompareTag("Food")){
 			other.gameObject.SetActive(false);
 			score +=5;
+		}
+		if (other.gameObject.CompareTag("RedElixir") && baseMovement- movementBonus>0){
+			other.gameObject.SetActive(false);
+			baseMovement -= movementBonus;
+		}
+		if (other.gameObject.CompareTag("BlueElixir")){
+			other.gameObject.SetActive(false);
+			baseMovement += movementBonus;
 		}
 		SetScoreText();
 	

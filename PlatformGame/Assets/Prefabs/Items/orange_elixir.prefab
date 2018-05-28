@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61847114433200748}
   m_Layer: 0
   m_Name: orange_elixir
-  m_TagString: Untagged
+  m_TagString: OrangeElixir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
