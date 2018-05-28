@@ -8,7 +8,7 @@ public class DwarfMove : MonoBehaviour {
 
 	public float jumpHigh;
 	public float speed;
-	public float friction;
+	public float baseMovement;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
@@ -33,8 +33,15 @@ public class DwarfMove : MonoBehaviour {
 		// 	rigidbody2d.AddForce(new Vector2(-friction, 0.0f));
 		// }
 		else {
-			rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+			rigidbody2d.velocity = new Vector2(baseMovement, rigidbody2d.velocity.y);
 		}
 
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag("Coin"))
+			other.gameObject.SetActive(false);
+		if (other.gameObject.CompareTag("Food"))
+			other.gameObject.SetActive(false);
 	}
 }
