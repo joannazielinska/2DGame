@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DwarfMove : MonoBehaviour {
 
 	private Rigidbody2D rigidbody2d;
+	private int score;
 
 	public float jumpHigh;
 	public float speed;
 	public float baseMovement;
+	public Text scoreText;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
+		score = 0;
+		SetScoreText();
 	}
 
 	// Use this for initialization
@@ -39,9 +44,19 @@ public class DwarfMove : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.CompareTag("Coin"))
+		if (other.gameObject.CompareTag("Coin")){
+			score +=10;
+		}
+		
+		if (other.gameObject.CompareTag("Food")){
 			other.gameObject.SetActive(false);
-		if (other.gameObject.CompareTag("Food"))
-			other.gameObject.SetActive(false);
+			score +=5;
+		}
+		SetScoreText();
+	
+	}
+
+	void SetScoreText() {
+		scoreText.text = "Score: " + score.ToString();
 	}
 }
