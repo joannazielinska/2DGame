@@ -63,14 +63,12 @@ public class DwarfMove : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			baseMovement += movementBonus;
 		}
-		if (other.gameObject.CompareTag("Enemy")) {
+		if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Obstacle")) {
 			livesNum -=1;
-			SetLivesText();
 		}
 		if (other.gameObject.CompareTag("Live") ){
 			if (livesNum < 4) livesNum +=1;
 			other.gameObject.SetActive(false);
-			SetLivesText();
 		}
         if (other.gameObject.CompareTag("Diamond"))
         {
@@ -82,6 +80,7 @@ public class DwarfMove : MonoBehaviour {
         }
 
         SetScoreText();
+		SetLivesText();
 	
 	}
 
