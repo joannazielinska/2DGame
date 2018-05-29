@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour {
 
-	private int direction;
 	private Rigidbody2D rigidbody2d;
-	public SpriteRenderer spriteRenderer; 
+	private SpriteRenderer spriteRenderer; 
 	public float speed;
 	// public int playerDamage;
 
 	void Start() {
-		direction = -1;
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -23,9 +21,13 @@ public class EnemyMove : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		direction *= (-1);
-		speed *= direction;
-		spriteRenderer.flipX = !spriteRenderer.flipX;
+		if (other.gameObject.CompareTag("Tile")){
+			Debug.Log(speed);
+			speed *= (-1);
+			Debug.Log(speed);
+			spriteRenderer.flipX = !spriteRenderer.flipX;
+		}
+		
 	
 	}
 }

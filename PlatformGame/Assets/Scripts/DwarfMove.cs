@@ -15,6 +15,9 @@ public class DwarfMove : MonoBehaviour {
 	public float movementBonus;
 	public Text scoreText;
 	public Text livesText;
+    public SceneFader sceneFader;
+    public Canvas pauseMenuCanvas;
+    public LevelCompleted levelCompleted;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
@@ -23,13 +26,7 @@ public class DwarfMove : MonoBehaviour {
 		SetScoreText();
 		SetLivesText();
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown("Jump")) {
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
@@ -70,7 +67,16 @@ public class DwarfMove : MonoBehaviour {
 			livesNum -=1;
 			SetLivesText();
 		}
-		SetScoreText();
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            other.gameObject.SetActive(false);
+            baseMovement = 0;
+            rigidbody2d.velocity = new Vector2(0.0f, 0.0f);
+            rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
+            LevelCompletedAction();
+        }
+
+        SetScoreText();
 	
 	}
 
@@ -81,4 +87,11 @@ public class DwarfMove : MonoBehaviour {
 	void SetLivesText() {
 		livesText.text = "Lives: " + livesNum.ToString();
 	}
+    void LevelCompletedAction()
+    {
+        pauseMenuCanvas.enabled = false;
+        PlayerPrefs.SetInt("levelReached", 2);
+        levelCompleted.levelCompletedMenuUI.SetActive(true);
+        levelCompleted.UpdateScoreValue(score);
+    }
 }
