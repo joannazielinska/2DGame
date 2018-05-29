@@ -7,7 +7,8 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
-	
+    public SceneFader sceneFader;
+
 	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -27,6 +28,12 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void Menu()
+    {
+        Resume();
+        sceneFader.FadeTo("Menu");
     }
 
     void Pause()

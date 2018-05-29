@@ -18,16 +18,23 @@ public class DwarfMove : MonoBehaviour {
     public SceneFader sceneFader;
     public Canvas pauseMenuCanvas;
     public LevelCompleted levelCompleted;
+    public GameOver gameOver;
+    public int currentLevelNum; 
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		score = 0;
-		livesNum = 3;
+		livesNum = 1;
 		SetScoreText();
 		SetLivesText();
 	}
 	
 	void Update () {
+
+        if(livesNum == 0)
+        {
+            GameOver();
+        }
 		if (Input.GetButtonDown("Jump")) {
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
 			rigidbody2d.AddForce(new Vector2(0.0f, jumpHigh));
@@ -36,10 +43,8 @@ public class DwarfMove : MonoBehaviour {
 			rigidbody2d.AddForce(new Vector2(speed, 0.0f));
 			
 		}
-		// else if (rigidbody2d.velocity.x > 0) {
-		// 	rigidbody2d.AddForce(new Vector2(-friction, 0.0f));
-		// }
-		else {
+		else
+        {
 			rigidbody2d.velocity = new Vector2(baseMovement, rigidbody2d.velocity.y);
 		}
 
@@ -63,8 +68,25 @@ public class DwarfMove : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			baseMovement += movementBonus;
 		}
-		if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Obstacle")) {
-			livesNum -=1;
+		if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (livesNum == 0)
+            {
+                this.gameObject.SetActive(false);
+            } else
+            {
+                livesNum -= 1;
+            }
+        }
+        if (other.gameObject.CompareTag("Obstacle")) {
+            if (livesNum == 0)
+            {
+                FreezePlayer();
+            }
+            else
+            {
+                livesNum -= 1;
+            }
 		}
 		if (other.gameObject.CompareTag("Live") ){
 			if (livesNum < 4) livesNum +=1;
@@ -73,9 +95,7 @@ public class DwarfMove : MonoBehaviour {
         if (other.gameObject.CompareTag("Diamond"))
         {
             other.gameObject.SetActive(false);
-            baseMovement = 0;
-            rigidbody2d.velocity = new Vector2(0.0f, 0.0f);
-            rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
+            FreezePlayer();
             LevelCompletedAction();
         }
 
@@ -91,11 +111,26 @@ public class DwarfMove : MonoBehaviour {
 	void SetLivesText() {
 		livesText.text = "Lives: " + livesNum.ToString();
 	}
+
+    void FreezePlayer()
+    {
+        baseMovement = 0;
+        rigidbody2d.velocity = new Vector2(0.0f, 0.0f);
+        rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
+    }
+
     void LevelCompletedAction()
     {
         pauseMenuCanvas.enabled = false;
-        PlayerPrefs.SetInt("levelReached", 2);
+        PlayerPrefs.SetInt("levelReached", currentLevelNum + 1);
         levelCompleted.levelCompletedMenuUI.SetActive(true);
         levelCompleted.UpdateScoreValue(score);
+    }
+
+    void GameOver()
+    {
+        pauseMenuCanvas.enabled = false;
+        gameOver.gameOverMenuUI.SetActive(true);
+        
     }
 }
