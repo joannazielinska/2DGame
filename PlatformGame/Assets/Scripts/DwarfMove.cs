@@ -13,7 +13,9 @@ public class DwarfMove : MonoBehaviour {
 	public float baseMovement;
 	public float movementBonus;
 	public Text scoreText;
-    //public SceneFader sceneFader;
+    public SceneFader sceneFader;
+    public Canvas pauseMenuCanvas;
+    public LevelCompleted levelCompleted;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
@@ -68,9 +70,7 @@ public class DwarfMove : MonoBehaviour {
             other.gameObject.SetActive(false);
             baseMovement = 0;
             rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
-            Debug.Log("Level accomplished");
-            PlayerPrefs.SetInt("levelReached", 2);
-            
+            LevelCompletedAction();
         }
 
         SetScoreText();
@@ -80,4 +80,12 @@ public class DwarfMove : MonoBehaviour {
 	void SetScoreText() {
 		scoreText.text = "Score: " + score.ToString();
 	}
+
+    void LevelCompletedAction()
+    {
+        pauseMenuCanvas.enabled = false;
+        PlayerPrefs.SetInt("levelReached", 2);
+        levelCompleted.levelCompletedMenuUI.SetActive(true);
+        levelCompleted.UpdateScoreValue(score);
+    }
 }

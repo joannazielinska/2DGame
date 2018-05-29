@@ -7,7 +7,6 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
-   // public SceneFader sceneFader;
 	
 	void Update ()
     {
