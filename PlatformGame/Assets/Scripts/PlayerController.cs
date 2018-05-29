@@ -22,8 +22,4 @@ public class PlayerController : MonoBehaviour {
         transform.position += move * speed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       //TODO
-    }
 }

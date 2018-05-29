@@ -485,28 +485,8 @@ Prefab:
       objectReference: {fileID: 1888322100}
     - target: {fileID: 114216139807674332, guid: b8c933e98972a8e469aca538b399a0e4,
         type: 2}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 114216139807674332, guid: b8c933e98972a8e469aca538b399a0e4,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 114216139807674332, guid: b8c933e98972a8e469aca538b399a0e4,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.7830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 114216139807674332, guid: b8c933e98972a8e469aca538b399a0e4,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.7830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 114216139807674332, guid: b8c933e98972a8e469aca538b399a0e4,
-        type: 2}
       propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.69803923
+      value: 0.14901961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8c933e98972a8e469aca538b399a0e4, type: 2}

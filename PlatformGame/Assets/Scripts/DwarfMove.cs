@@ -22,13 +22,7 @@ public class DwarfMove : MonoBehaviour {
 		score = 0;
 		SetScoreText();
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown("Jump")) {
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
@@ -69,6 +63,7 @@ public class DwarfMove : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             baseMovement = 0;
+            rigidbody2d.velocity = new Vector2(0.0f, 0.0f);
             rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
             LevelCompletedAction();
         }
