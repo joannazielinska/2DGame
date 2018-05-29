@@ -9,6 +9,7 @@ TagManager:
   - BlueElixir
   - OrangeElixir
   - RedElixir
+  - Diamond
   layers:
   - Default
   - TransparentFX

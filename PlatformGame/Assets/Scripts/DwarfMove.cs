@@ -13,6 +13,7 @@ public class DwarfMove : MonoBehaviour {
 	public float baseMovement;
 	public float movementBonus;
 	public Text scoreText;
+    //public SceneFader sceneFader;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
@@ -62,7 +63,17 @@ public class DwarfMove : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			baseMovement += movementBonus;
 		}
-		SetScoreText();
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            other.gameObject.SetActive(false);
+            baseMovement = 0;
+            rigidbody2d.AddForce(new Vector2(0.0f, 0.0f));
+            Debug.Log("Level accomplished");
+            PlayerPrefs.SetInt("levelReached", 2);
+            
+        }
+
+        SetScoreText();
 	
 	}
 
