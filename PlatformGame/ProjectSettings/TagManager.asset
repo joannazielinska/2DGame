@@ -9,6 +9,7 @@ TagManager:
   - BlueElixir
   - OrangeElixir
   - RedElixir
+  - Enemy
   layers:
   - Default
   - TransparentFX

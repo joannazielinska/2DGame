@@ -7,17 +7,21 @@ public class DwarfMove : MonoBehaviour {
 
 	private Rigidbody2D rigidbody2d;
 	private int score;
+	private int livesNum;
 
 	public float jumpHigh;
 	public float speed;
 	public float baseMovement;
 	public float movementBonus;
 	public Text scoreText;
+	public Text livesText;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		score = 0;
+		livesNum = 3;
 		SetScoreText();
+		SetLivesText();
 	}
 
 	// Use this for initialization
@@ -62,11 +66,19 @@ public class DwarfMove : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			baseMovement += movementBonus;
 		}
+		if (other.gameObject.CompareTag("Enemy")) {
+			livesNum -=1;
+			SetLivesText();
+		}
 		SetScoreText();
 	
 	}
 
 	void SetScoreText() {
 		scoreText.text = "Score: " + score.ToString();
+	}
+
+	void SetLivesText() {
+		livesText.text = "Lives: " + livesNum.ToString();
 	}
 }
