@@ -22,9 +22,7 @@ public class EnemyMove : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.CompareTag("Tile")){
-			Debug.Log(speed);
 			speed *= (-1);
-			Debug.Log(speed);
 			spriteRenderer.flipX = !spriteRenderer.flipX;
 		}
 		

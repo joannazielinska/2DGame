@@ -67,6 +67,11 @@ public class DwarfMove : MonoBehaviour {
 			livesNum -=1;
 			SetLivesText();
 		}
+		if (other.gameObject.CompareTag("Live") ){
+			if (livesNum < 4) livesNum +=1;
+			other.gameObject.SetActive(false);
+			SetLivesText();
+		}
         if (other.gameObject.CompareTag("Diamond"))
         {
             other.gameObject.SetActive(false);

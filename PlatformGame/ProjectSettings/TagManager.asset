@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Diamond
   - Tile
+  - Live
   layers:
   - Default
   - TransparentFX
