@@ -4379,6 +4379,11 @@ Prefab:
       propertyPath: gameCompleted
       value: 
       objectReference: {fileID: 1571175864}
+    - target: {fileID: 114126093517799302, guid: fbb1df4fa07c77142a7d44743e0cb628,
+        type: 2}
+      propertyPath: lifeNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbb1df4fa07c77142a7d44743e0cb628, type: 2}
   m_IsPrefabParent: 0
