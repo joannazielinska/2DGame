@@ -7,13 +7,12 @@ public class EnemyMove : MonoBehaviour {
 	private Rigidbody2D rigidbody2d;
 	private SpriteRenderer spriteRenderer; 
 	public float speed;
-	// public int playerDamage;
 
 	void Start() {
+
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
-
-
+        
 	}
 
 	void Update () {
