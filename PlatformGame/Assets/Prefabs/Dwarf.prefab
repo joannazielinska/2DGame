@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563435361594446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.4, z: -1}
+  m_LocalPosition: {x: 0.973, y: 0.407, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,13 +121,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHigh: 300
   speed: 300
-  baseMovement: 3
-  movementBonus: 2
+  baseMovement: 1
+  movementBonus: 1
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
   sceneFader: {fileID: 0}
   pauseMenuCanvas: {fileID: 0}
   levelCompleted: {fileID: 0}
+  gameOver: {fileID: 0}
+  currentLevelNum: 2
+  lifeNumber: 3
+  levelManager: {fileID: 0}
 --- !u!114 &114939782946708688
 MonoBehaviour:
   m_ObjectHideFlags: 1
