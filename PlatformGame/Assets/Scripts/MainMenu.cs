@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour {
     public string levelToLoad;
     public SceneFader sceneFader;
 
+    private void Start()
+    {
+        PlayerPrefs.DeleteAll();    
+    }
+
     public void PlayGame()
     {
         sceneFader.FadeTo(levelToLoad);

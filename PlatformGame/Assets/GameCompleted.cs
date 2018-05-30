@@ -13,6 +13,7 @@ public class GameCompleted : MonoBehaviour {
 
     public void PlayAgain()
     {
+        PlayerPrefs.DeleteAll();
         sceneFader.FadeTo(firstLevelScenceName);
     }
 
