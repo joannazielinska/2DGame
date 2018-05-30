@@ -19,12 +19,13 @@ public class DwarfMove : MonoBehaviour {
     public Canvas pauseMenuCanvas;
     public LevelCompleted levelCompleted;
     public GameOver gameOver;
-    public int currentLevelNum; 
+    public int currentLevelNum;
+    public int lifeNumber;
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		score = 0;
-		livesNum = 1;
+		livesNum = lifeNumber;
 		SetScoreText();
 		SetLivesText();
 	}
@@ -33,6 +34,7 @@ public class DwarfMove : MonoBehaviour {
 
         if(livesNum == 0)
         {
+            FreezePlayer();
             GameOver();
         }
 		if (Input.GetButtonDown("Jump")) {
@@ -79,6 +81,7 @@ public class DwarfMove : MonoBehaviour {
             }
         }
         if (other.gameObject.CompareTag("Obstacle")) {
+
             if (livesNum == 0)
             {
                 FreezePlayer();
@@ -97,6 +100,14 @@ public class DwarfMove : MonoBehaviour {
             other.gameObject.SetActive(false);
             FreezePlayer();
             LevelCompletedAction();
+        }
+        if (other.gameObject.CompareTag("Water") && baseMovement - movementBonus > 0)
+        {
+            baseMovement -= movementBonus;
+        }
+        if (other.gameObject.CompareTag("Water") )
+        {
+            baseMovement += movementBonus;
         }
 
         SetScoreText();
