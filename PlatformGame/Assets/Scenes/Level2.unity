@@ -4424,12 +4424,12 @@ Prefab:
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 336.8
+      value: -319
       objectReference: {fileID: 0}
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 337.6
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}
@@ -11126,6 +11126,11 @@ Prefab:
         type: 2}
       propertyPath: currentSceneName
       value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414708714912212, guid: f466d4efbf553e049b1810f7883232ce,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f466d4efbf553e049b1810f7883232ce, type: 2}

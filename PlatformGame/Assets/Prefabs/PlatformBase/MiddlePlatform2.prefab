@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 4447673675054584}
   m_Layer: 0
   m_Name: MiddlePlatform1 (1)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 4641592817732864}
   m_Layer: 0
   m_Name: MiddlePlatform1 (2)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4815225398391266}
   m_Layer: 0
   m_Name: ShortBaseRight
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4597553679848444}
   m_Layer: 0
   m_Name: ShortBaseLeft
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4788346709555672}
   m_Layer: 0
   m_Name: ShortBase
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

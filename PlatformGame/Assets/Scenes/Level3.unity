@@ -2309,6 +2309,16 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 114414708714912212, guid: f466d4efbf553e049b1810f7883232ce,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114883589905549910, guid: f466d4efbf553e049b1810f7883232ce,
+        type: 2}
+      propertyPath: sceneFader
+      value: 
+      objectReference: {fileID: 2022712543}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f466d4efbf553e049b1810f7883232ce, type: 2}
   m_IsPrefabParent: 0
@@ -6380,12 +6390,12 @@ Prefab:
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 336.8
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 337.6
+      value: 213
       objectReference: {fileID: 0}
     - target: {fileID: 224075410491676024, guid: 654fad3bda858a14cacfa20c08e93b6a,
         type: 2}

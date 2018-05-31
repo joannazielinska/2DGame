@@ -41,9 +41,7 @@ public class DwarfMove : MonoBehaviour {
             FreezePlayer();
             GameOver();
         }
-		if (Input.GetButtonDown("Jump") ) {
-
-            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
+		if (Input.GetButtonDown("Jump") && rigidbody2d.velocity.y ==0) {
             rigidbody2d.AddForce(new Vector2(0.0f, jumpHigh));
             
 		}
